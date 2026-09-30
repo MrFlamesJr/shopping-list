@@ -1,59 +1,152 @@
-# ShoppingList
+# Shopping List - Angular Lab 3
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+## Goal
 
-## Development server
+- Text input + **Ajouter** button
+- List of items, each with **Supprimer** button
+- Minimum 2 components: form, list
+- Dedicated parent component manages the list
+- Bootstrap styling
+- Deliver via GitHub Classroom
 
-To start a local development server, run:
+---
+
+## Useful Commands
 
 ```bash
+# Create project (standalone, CSS)
+ng new shopping-list --standalone
+
+# Add Bootstrap
+ng add @ng-bootstrap/ng-bootstrap
+
+# Components
+ng generate component shopping-list
+ng generate component shopping-list/add-item
+ng generate component shopping-list/list-item
+
+# Dev server (localhost:4200), auto-rebuilds and live-reloads on save
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Same, and opens the browser automatically
+ng serve --open
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
+# Tests (re-run on save)
 ng test
 ```
 
-## Running end-to-end tests
+- Auto-refresh: no setup, `ng serve` watches `src/` and reloads the browser on each save
+- Not refreshing? Restart `ng serve`, or add `--poll 2000` (helps on network drives / WSL)
 
-For end-to-end (e2e) testing, run:
+- Shorthand: `ng g c`, `ng g s`, `ng g class`
 
-```bash
-ng e2e
+---
+
+## Tentative Structure
+
+```
+src/app/
+  app.ts / app.html          root, hosts shopping-list
+  shopping-list/             parent, owns items[]
+    shopping-list.ts / .html
+    add-item/                input + Ajouter (emits up)
+    list-item/               items + Supprimer (receives list, emits up)
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+`app.html`:
+```html
+<div class="container">
+  <app-shopping-list></app-shopping-list>
+</div>
+```
 
-## Additional Resources
+`shopping-list.html`:
+```html
+<app-add-item (add)="addItem($event)"></app-add-item>
+<app-list-item
+  [items]="items"
+  (remove)="removeItem($event)">
+</app-list-item>
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+`shopping-list.ts`:
+```ts
+items: string[] = [];
+
+addItem(item: string) { this.items = [...this.items, item]; }
+removeItem(index: number) { this.items = this.items.filter((_, i) => i !== index); }
+```
+
+### Data flow
+- `add-item` emits `(add)` with text
+- Parent updates `items[]`
+- Parent passes `[items]` down to `list-item`
+- `list-item` emits `(remove)` with index
+- Parent updates `items[]`
+- No service needed
+
+---
+
+### Components
+- Each component lists its own `imports`
+- Uses `ngModel`: import `FormsModule`
+- Uses child component: import its class
+- Missing import: template error
+
+### Template-driven forms
+- `[(ngModel)]="newItem"` for two-way binding
+- `name` attribute required inside `<form>`
+- `FormsModule` required
+
+```html
+<input class="form-control" name="item" [(ngModel)]="newItem">
+<button class="btn btn-success" (click)="add()">Ajouter</button>
+```
+
+### Event binding
+- `(click)="method()"`
+- Used on add and delete buttons
+
+### Control flow
+- `@for (item of items; track $index) { ... }`
+- `@empty { ... }` for empty list
+- `@if (cond) { ... } @else { ... }`
+- No extra import needed
+
+### Parent to child: `@Input`
+- `@Input() items: string[] = [];`
+- Bind: `[items]="items"`
+
+### Child to parent: `@Output`
+- `@Output() remove = new EventEmitter<string>();`
+- Emit: `this.remove.emit(item)`
+- Listen: `(remove)="removeItem($event)"`
+
+### Sibling communication
+- Siblings cannot talk directly
+- Go through the parent: child emits up, parent passes down
+- Alternative: shared service (`inject()` + `BehaviorSubject` or `signal`)
+
+### Immutable updates
+- `[...items, x]` to add
+- `.filter(...)` to remove
+- Never mutate in place
+
+### Model
+- Plain `string` is enough
+- Or class/interface with `id` + `name`
+- `id` helps `track` and correct deletion
+
+---
+
+## Checklist
+
+- [ ] Ajouter appends item
+- [ ] Input cleared after add
+- [ ] Empty / whitespace input ignored (`trim()`)
+- [ ] Supprimer removes only its item
+- [ ] Parent + 2 child standalone components
+- [ ] Parent owns `items[]`
+- [ ] Bootstrap classes applied
+
+
