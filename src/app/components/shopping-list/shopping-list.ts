@@ -13,7 +13,7 @@ export class ShoppingList {
 
   newItemName = '';
 
-  shoppingList: ShoppingItem[] = [
+  shoppingList: ShoppingItem[] = [ // initial list of items, for testing purposes
     { id: 1, name: 'Milk' },
     { id: 2, name: 'Eggs' },
     { id: 3, name: 'Bread' },

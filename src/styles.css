@@ -1,8 +1,12 @@
+@import './theme.css';
+
 html {
-  background-color: #0d0d10;
+  background-color: var(--color-page);
 }
 
-/* zigzag tile on an oversized rotated layer, so the rotated edges still cover the window */
+/* zigzag tile bg
+   background-repeat is not set so it defaults to repeat, which is what we want
+*/
 html::before {
   content: '';
   position: fixed;
@@ -10,11 +14,48 @@ html::before {
   z-index: -1;
   pointer-events: none;
   background-image: url('/zigzag-tile.svg');
-  background-size: 60px 60px;
+  background-size: 90px 90px;
   transform: rotate(30deg);
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Courier New', Consolas, monospace;
+  color: var(--color-text);
+  padding-top: 15vh;
+}
+
+/* --- shared styles --- */
+
+input {
+  flex: 1;
+  min-width: 0;
+  outline: none;
+  font: inherit;
+  color: inherit;
+}
+
+input::placeholder {
+  color: var(--color-text-muted);
+}
+
+button {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
 }

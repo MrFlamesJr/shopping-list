@@ -1,0 +1,34 @@
+
+/* This just makes it easier to tweak and iterate on colors */
+:root {
+  /* surfaces */
+  --color-page: #030108;
+  --color-surface: #120a26;
+  --color-surface-list: #0e0620;
+  --color-surface-header: #140930;
+  --color-surface-hover: color-mix(in srgb, var(--color-surface-list), var(--color-primary) 10%);
+  --color-input: rgba(0, 0, 0, 0.45);
+
+  /* text */
+  --color-text: #eae6ff;
+  --color-text-muted: color-mix(in srgb, var(--color-text) 50%, transparent);
+
+  /* lines */
+  --color-border-subtle: color-mix(in srgb, var(--color-text) 10%, transparent);
+  --color-border-focus: var(--color-accent);
+
+  /* main pallet */
+  --color-primary: #ff2bd6;
+  --color-accent: #00f0ff;
+  --color-danger: #ff3860;
+
+  /* glows */
+  --color-glow-primary: color-mix(in srgb, var(--color-primary) 65%, transparent);
+  --color-glow-accent: color-mix(in srgb, var(--color-accent) 65%, transparent);
+  --color-glow-danger: color-mix(in srgb, var(--color-danger) 65%, transparent);
+
+  /* alternate states shades */
+  --color-accent-hover: color-mix(in srgb, var(--color-accent), white 45%);
+  --color-accent-active: color-mix(in srgb, var(--color-accent), black 30%);
+  --color-danger-hover: color-mix(in srgb, var(--color-danger), white 40%);
+}
