@@ -13,11 +13,11 @@ export class ShoppingList {
 
   newItemName = '';
 
-  shoppingList: ShoppingItem[] = [ // initial list of items, for testing purposes
-    { id: 1, name: 'Milk' },
-    { id: 2, name: 'Eggs' },
-    { id: 3, name: 'Bread' },
-    { id: 4, name: 'Butter' }
+  shoppingList: ShoppingItem[] = [ // initial list of items, for testing
+    { id: 1, name: 'Bread' },
+    { id: 2, name: 'Loaves' },
+    { id: 3, name: 'Naan' },
+    { id: 4, name: 'Buns' }
   ];
 
   addItem() {
@@ -28,10 +28,7 @@ export class ShoppingList {
     this.newItemName = '';
   }
 
-  // called on child's (remove); parent owns the list
-  removeItem(item: ShoppingItem) {
-    this.shoppingList = this.shoppingList.filter(i => i.id !== item.id);
-  }
+  // TODO: remove logic goes here (actually filter it out of the list)
 
   private nextId(): number {
     return Math.max(0, ...this.shoppingList.map(i => i.id)) + 1;
