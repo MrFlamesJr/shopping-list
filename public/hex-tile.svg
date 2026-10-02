@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="60"
+   height="60"
+   viewBox="0 0 60 60"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="hex-tile.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="12.883333"
+     inkscape:cx="30"
+     inkscape:cy="30"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3" />
+  <defs
+     id="defs1" />
+  <g
+     fill="none"
+     id="g3">
+    <path
+       style="fill:none;stroke:#7b00ff;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       id="path4"
+       d="M 9.5998396,16.270914 3.6648687,14.3474 2.3631954,8.2458069 6.9964929,4.0677284 12.931464,5.9912425 14.233137,12.092835 Z" />
+    <path
+       style="fill:none;stroke:#df00ff;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path5"
+       d="m 45.070431,13.504858 -5.26098,0.814119 -3.335537,-4.149084 1.925442,-4.9632012 5.26098,-0.8141186 3.335538,4.1490831 z" />
+    <path
+       style="fill:none;stroke:#ff00af;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path7"
+       d="m 52.473697,51.985569 -3.214861,1.337864 -2.766055,-2.115218 0.448805,-3.453084 3.214861,-1.337865 2.766055,2.115219 z" />
+    <path
+       style="fill:none;stroke:#7b00ff;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:bevel;paint-order:markers fill stroke"
+       id="path8"
+       d="m 50.846604,34.006209 -2.152193,0.636234 -1.627091,-1.545737 0.525102,-2.181971 2.152193,-0.636234 1.627091,1.545737 z" />
+    <path
+       style="fill:none;stroke:#009bff;stroke-width:2.13543;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path9"
+       d="m 19.199678,53.694014 -4.329105,2.291538 -4.149083,-2.603346 0.180023,-4.894884 4.329105,-2.291538 4.149082,2.603346 z" />
+    <path
+       style="fill:none;stroke:#a700ff;stroke-width:3.435;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path1"
+       d="m 32.634725,31.233748 -0.254816,6.380979 -6.362346,-0.573357 -5.655302,2.969884 -2.684469,-5.794835 -5.400486,-3.411095 3.677878,-5.221477 0.254816,-6.380979 6.362346,0.573357 5.655302,-2.969884 2.684469,5.794836 5.400486,3.411094 z" />
+  </g>
+  <style
+     id="style1">
+    path {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    #path4 {
+      animation: spin 7s linear infinite normal;
+    }
+
+    #path5 {
+      animation: spin 11s linear infinite reverse;
+    }
+
+    #path1 {
+      animation: spin 23s linear infinite normal;
+    }
+
+    #path7 {
+      animation: spin 5s linear infinite reverse;
+    }
+
+    #path8 {
+      animation: spin 13s linear infinite normal;
+    }
+
+    #path9 {
+      animation: spin 17s linear infinite reverse;
+    }
+  </style>
+</svg>

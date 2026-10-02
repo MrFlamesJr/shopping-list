@@ -13,10 +13,10 @@ html::before {
   inset: -100%;
   z-index: -1;
   pointer-events: none;
-  background-image: url('/zigzag-tile.svg');
+  background-image: url('/hex-tile.svg');
   background-size: 90px 90px;
   transform: rotate(30deg);
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 body {
