@@ -28,7 +28,6 @@ export class ShoppingList {
     this.newItemName = '';
   }
 
-  // TODO: remove logic goes here (actually filter it out of the list)
   removeItem(item: ShoppingItem) {
     this.shoppingList = this.shoppingList.filter(i => i.id!== item.id);
   }
