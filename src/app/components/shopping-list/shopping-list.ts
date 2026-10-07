@@ -29,7 +29,9 @@ export class ShoppingList {
   }
 
   // TODO: remove logic goes here (actually filter it out of the list)
-
+  removeItem(item: ShoppingItem) {
+    this.shoppingList = this.shoppingList.filter(i => i.id!== item.id);
+  }
   private nextId(): number {
     return Math.max(0, ...this.shoppingList.map(i => i.id)) + 1;
   }

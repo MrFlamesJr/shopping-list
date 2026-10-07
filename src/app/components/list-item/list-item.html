@@ -1,6 +1,6 @@
 <div class="list-item">
     <input type="text" placeholder="Enter item name..." [(ngModel)]="item.name" />
-    <button title="Delete"> <!-- TODO: remove logic (delete button) goes here -->
+    <button title="Delete" (click)="onRemove()"> <!-- TODO: remove logic (delete button) goes here -->
         <span class="icon"></span>
     </button>
 </div>

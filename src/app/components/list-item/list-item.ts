@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ShoppingItem } from '../../models/shopping-item';
 
@@ -13,6 +13,9 @@ export class ListItem {
   // in: parent sets via [item]
   @Input() item: ShoppingItem = { id: 0, name: '' };
 
-  // TODO: remove logic goes here (using @Output and EventEmitter)
-
+  // remove logic
+  @Output() remove: EventEmitter<ShoppingItem> = new EventEmitter<ShoppingItem>();
+  onRemove():void {
+    this.remove.emit(this.item);
+  }
 }
